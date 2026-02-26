@@ -2,7 +2,7 @@ from flask import Flask
 app = Flask(__name__)
 @app.get("/")
 def home():
-  return "Hello from SRE lab v1"
+  return "Hello from SRE lab v2"
 @app.get("/health")
 def health():
   return {"status": "ok"}, 200
