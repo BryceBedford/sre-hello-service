@@ -5,6 +5,9 @@ def home():
   return "Hello from SRE lab v2"
 @app.get("/health")
 def health():
-  return {"status": "ok"}, 200
+  return {"status": "ok",
+         "version": "v2",
+         "service": "sre-hello-service"
+         }, 200
 if __name__ == "__main__":
   app.run(host="0.0.0.0", port=5000)
