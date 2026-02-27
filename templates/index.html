@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bryce Bedford | Site Reliability Engineer</title>
+  <meta name="description" content="SRE / Cloud / DevOps portfolio — CI/CD, automation, reliability engineering." />
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 980px; margin: auto; padding: 40px; line-height: 1.6; }
+    h1 { margin: 0; }
+    .top { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+    .contact { color:#444; margin-top:6px; }
+    .btn { display:inline-block; padding:10px 14px; border:1px solid #111; border-radius:10px; text-decoration:none; color:#111; font-weight:700; }
+    .btn.primary { background:#111; color:#fff; }
+    .btn:visited { color: inherit; }
+    h2 { margin-top: 28px; border-top:1px solid #eee; padding-top:18px; }
+    ul { margin-top: 10px; }
+    li { margin: 6px 0; }
+    code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+    .muted { color:#555; }
+    .pillrow { margin-top: 12px; display:flex; flex-wrap:wrap; gap:8px; }
+    .pill { font-size:12px; padding:7px 10px; border:1px solid #ddd; border-radius:999px; background:#fafafa; }
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <div>
+      <h1>Bryce Bedford</h1>
+      <div class="contact">
+        <strong>Site Reliability Engineer (SRE) | Cloud & DevOps</strong><br/>
+        DC Metro / Remote • brycebedford22@gmail.com • 804.301.9628 •
+        <a href="{{ github_url }}" target="_blank" rel="noopener">GitHub</a>
+        • <span class="muted">Secret eligible (US Citizen)</span>
+      </div>
+
+      <div class="pillrow">
+        <span class="pill">SLI / SLO mindset</span>
+        <span class="pill">Toil reduction</span>
+        <span class="pill">Incident troubleshooting</span>
+        <span class="pill">CI/CD</span>
+        <span class="pill">AWS</span>
+        <span class="pill">Linux</span>
+        <span class="pill">Monitoring & logging (foundational)</span>
+      </div>
+    </div>
+
+    <div>
+      {% if resume_file %}
+        <a class="btn primary" href="/download">⬇ Download Resume</a>
+      {% else %}
+        <a class="btn" href="#" title="Upload your PDF to /static as bb-cloudres.pdf or resume.pdf">Upload resume to enable download</a>
+      {% endif %}
+      <div style="margin-top:10px;">
+        <a class="btn" href="{{ github_url }}" target="_blank" rel="noopener">View GitHub</a>
+      </div>
+      <div class="muted" style="margin-top:10px;">
+        Health: <a href="/healthz" target="_blank" rel="noopener">/healthz</a>
+      </div>
+    </div>
+  </div>
+
+  <h2>Professional Summary</h2>
+  <p>
+    SRE / Cloud-focused engineer applying software engineering principles to operations.
+    Hands-on experience deploying and operating production workloads on AWS, building automation-first CI/CD pipelines,
+    and improving reliability through repeatable service management and production-ready patterns.
+    Strong communication and cross-functional leadership background—comfortable collaborating with developers, security, and stakeholders.
+  </p>
+
+  <h2>Experience</h2>
+  <h3>AON — Digital Product Manager <span class="muted">(Remote • Jan 2023 – Present)</span></h3>
+  <ul>
+    <li>Supported cloud-hosted enterprise platforms operating across AWS/Azure for <strong>500K+</strong> users; partnered with engineering on reliability, secure integrations, and performance considerations.</li>
+    <li>Collaborated on identity integrations (SSO/SAML), cloud APIs, and delivery workflows aligned to secure production operations.</li>
+    <li>Improved delivery velocity by <strong>30%+</strong> through workflow optimization and automation-focused release process improvements.</li>
+  </ul>
+
+  <h3>FRINGE — Product Manager <span class="muted">(Remote • Apr 2022 – Jan 2023)</span></h3>
+  <ul>
+    <li>Partnered with engineering to support AWS-hosted platform operations, integrations, and release processes.</li>
+    <li>Reduced manual effort by ~30% through better system workflows and integration-driven automation.</li>
+  </ul>
+
+  <h3>Protiviti — Senior Consultant <span class="muted">(Washington, DC • Aug 2020 – Aug 2022)</span></h3>
+  <ul>
+    <li>Supported regulated clients with modernization and operational readiness; produced technical documentation and process improvements aligned to secure environments.</li>
+    <li>Worked across stakeholders to drive delivery predictability, risk reduction, and production readiness.</li>
+  </ul>
+
+  <h2>Education</h2>
+  <ul>
+    <li><strong>Ph.D. (In Progress)</strong> — Howard University (Economics)</li>
+    <li><strong>M.A.</strong> — Virginia State University</li>
+    <li><strong>B.A.</strong> — Old Dominion University</li>
+  </ul>
+
+  <h2>Certifications</h2>
+  <ul>
+    <li>CompTIA Security+</li>
+    <li>ITIL v4 Foundation</li>
+    <li>CSM / CSPO</li>
+    <li>AWS Solutions Architect Associate (In progress)</li>
+  </ul>
+
+  <h2>Skills</h2>
+  <ul>
+    <li><strong>Reliability:</strong> health checks, restart policies, runbook-oriented thinking, production readiness</li>
+    <li><strong>Automation / Toil Reduction:</strong> repeatable deploy scripts, pipeline-driven releases, standardization</li>
+    <li><strong>CI/CD:</strong> GitHub Actions workflows, SSH deployment, restart + validation steps</li>
+    <li><strong>Cloud & Security:</strong> AWS EC2, security groups, IAM concepts, secure access patterns</li>
+    <li><strong>Scripting:</strong> Python (Flask), Bash fundamentals</li>
+  </ul>
+
+  <h2>Projects (Aligned to Noctua SRE Role)</h2>
+  <ul>
+    <li><strong>Production Digital Resume Site (AWS + CI/CD):</strong> Deployed Flask app on EC2 and configured Nginx reverse proxy for standard HTTP access and separation of concerns.</li>
+    <li><strong>Self-healing CI/CD pipeline:</strong> GitHub Actions deploy on push → SSH into host → pull code → restart services → smoke-test endpoint, reducing manual deployment toil.</li>
+    <li><strong>Operational hardening:</strong> service management + troubleshooting (ports, dependencies, permissions, configs) with a reliability-first mindset.</li>
+    <li><strong>In progress:</strong> IaC (Terraform) + containerization (Docker/Kubernetes) roadmap to improve repeatability and scaling.</li>
+  </ul>
+
+  <h2>Technical Skills</h2>
+  <ul>
+    <li>AWS (EC2, Security Groups), Linux, Nginx, Git, GitHub Actions</li>
+    <li>Python (Flask), Gunicorn, Bash fundamentals</li>
+    <li>Monitoring/logging concepts; SLO/SLI awareness; incident response mindset</li>
+    <li>Terraform / Docker / Kubernetes: currently expanding hands-on capabilities</li>
+  </ul>
+
+</body>
+</html>
