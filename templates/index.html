@@ -54,9 +54,40 @@
       <div style="margin-top:10px;">
         <a class="btn" href="{{ github_url }}" target="_blank" rel="noopener">View GitHub</a>
       </div>
-      <div class="muted" style="margin-top:10px;">
-        Health: <a href="/healthz" target="_blank" rel="noopener">/healthz</a>
-      </div>
+<button id="healthBtn" class="btn" type="button">✅ Check Health Status</button>
+
+<div id="healthBox"
+     style="display:none; margin-top:10px; padding:10px; border:1px dashed #ccc; border-radius:10px; background:#fafafa; white-space:pre-wrap;">
+</div>
+
+<script>
+  (function () {
+    const btn = document.getElementById("healthBtn");
+    const box = document.getElementById("healthBox");
+
+    btn.addEventListener("click", async () => {
+      box.style.display = "block";
+      box.textContent = "Checking /healthz ...";
+
+      try {
+        const res = await fetch("{{ health_url }}", { cache: "no-store" });
+        let data = {};
+        try { data = await res.json(); } catch (_) {}
+
+        if (!res.ok) {
+          box.textContent = "Health check FAILED (HTTP " + res.status + ")\n" +
+                            JSON.stringify(data, null, 2);
+          return;
+        }
+
+        box.textContent = "Health check OK (HTTP " + res.status + ")\n" +
+                          JSON.stringify(data, null, 2);
+      } catch (e) {
+        box.textContent = "Health check failed: " + e;
+      }
+    });
+  })();
+</script>
     </div>
   </div>
 
