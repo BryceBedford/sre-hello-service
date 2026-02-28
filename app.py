@@ -4,6 +4,8 @@ import time
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
+# ---- Config / constants ----
+GITHUB_URL = "https://github.com/BryceBedford"
 VERSION = "v1.0.0"
 SLO_TARGET = "99.9% availability (30-day window)"
 START_TIME = time.time()
@@ -14,18 +16,18 @@ def _resume_filename():
     """
     candidates = ["bb-cloudres.pdf", "resume.pdf"]
     static_dir = os.path.join(app.root_path, "static")
-
     for f in candidates:
         if os.path.exists(os.path.join(static_dir, f)):
             return f
     return None
 
+# ---- Routes ----
 @app.route("/")
 def home():
     resume_file = _resume_filename()
     return render_template(
         "index.html",
-        github_url="https://github.com/BryceBedford",
+        github_url=GITHUB_URL,
         resume_file=resume_file,
         health_url="/healthz",
         metrics_url="/metrics",
