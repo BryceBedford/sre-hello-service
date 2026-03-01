@@ -23,7 +23,7 @@ jobs:
           docker ps
           
       - name: Debug container logs
-        if:: always()
+        if: always()
         run:  |
           docker ps -a
           docker logs sre-hello-ci || true
