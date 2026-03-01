@@ -21,7 +21,13 @@ jobs:
           docker rm -f sre-hello-ci 2>/dev/null || true
           docker run -d --name sre-hello-ci -p 5000:5000 sre-hello-ci
           docker ps
-
+          
+      - name: Debug container logs
+        if:: always()
+        run:  |
+          docker ps -a
+          docker logs sre-hello-ci || true
+      
       - name: Smoke test /healthz
         run: |
           # give it a couple seconds to boot
