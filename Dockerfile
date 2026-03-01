@@ -13,4 +13,7 @@ COPY . /app
 ENV PORT=5000
 EXPOSE 5000
 
+HEALTHCHECK --interval=10s --timeout=3s --retries=3 \
+  CMD curl -f http://localhost:5000/healthz || exit 1
+
 CMD ["python","-m","gunicorn","-w","2","-b","0.0.0.0:5000","app:app"]
